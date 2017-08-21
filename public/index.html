@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Movie Catalog</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+ <link rel="stylesheet" href="styles/css/main.css">
+</head>
+<body class="main" ng-app="app" ng-controller="catalogCtrl">
+ <nav class="nav">
+  <header class="nav__header">Movie Catalog</header>
+  <ul class="nav__list">
+    <li>Recent</li>
+    
+
+  </ul> 
+ </nav>
+ <section class="catalog" >
+   <ul class="catalog__list">
+     <li ng-if="movie.images[0].url" ng-click="setCurrentMovie(movie)" ng-repeat ="movie in movieList">
+      <img src="{{movie.images[0].url}}">
+     </li>   
+   </ul>
+ </section>
+ <section ng-if="currentMovie" class="video">
+  <video class="video__player" controls>
+   <source src="{{currentMovie.contents[0].url}}" type="video/mp4">
+   <source src="" type="video/ogg">
+   Your browser does not support HTML5 video.
+  </video>
+  <aside class="video__legend">
+    <article>
+      <header>
+        <h3>{{currentMovie.title}}</h3>
+      </header>
+      <p><strong>Description: </strong></p>
+      <p>{{currentMovie.description}}</p>
+      <footer>footer</footer>
+    </article>
+  </aside>
+ 
+ </section>
+ 
+ <script src="scripts/app.js"></script>
+ <script src="scripts/services/dataService.js"></script>
+ <script src="scripts/controllers/catalogCtrl.js"></script>
+ <script src="scripts/controllers/videoCtrl.js"></script>
+</body>
+</html>
