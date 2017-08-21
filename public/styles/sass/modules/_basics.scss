@@ -6,23 +6,33 @@ html,body{
 	margin:0;
 	padding: 0;
 	height: 100%;
+	overflow: 	auto;
+
+}
+html{
+
+    display: flex;
+    justify-content: center;
+
 
 }
 .main{
-	display: flex;
-	flex-direction:column;
+	
+	
 	max-width: $break-large;
 
 }
 
 .nav{
+	background: black;
+    color: white;
 	padding: 0 10px;
 	display:flex;
 	flex:1;
 	max-height: 80px;
 	justify-content: space-between;
 	align-items:center;
-	background: rgba(black,0.3);
+	
 	&__header{
 		padding: 10px;
 	}
@@ -43,21 +53,30 @@ html,body{
 .catalog{
 	display:flex;
 	
-	overflow: auto;	
+	
 
 	&__list{
-		padding: 0;
+		
 		display: flex;
+		overflow: auto;	
+		overflow-y: hidden;
+		padding: 30px 0;
 		li{
 			list-style: none;
-			padding: 0 10px;
+			margin: 0 10px;
+			transition: 0.3s;
+			border: 3px solid transparent;
+			&:hover{
+				transform: 	scale(1.1);
+				
+			}
 		}
 
 	}
 }
 
 .video{
-	flex:5;
+	flex:1;
 	display: flex;
 	justify-content: space-evenly;
 	flex-direction: column;
@@ -66,13 +85,15 @@ html,body{
 	   flex-direction: row;
 	}
 	&__player{
-		flex: 2;
+		flex: 1;
 		background:black;
+		
+		max-height: -webkit-fill-available;
 		
 	}
 	&__legend{
 		display: flex;
-		flex: 2;
+		flex: 1;
 		padding: 10px;
 		article{
 			flex:1;
