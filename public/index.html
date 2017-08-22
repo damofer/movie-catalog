@@ -10,7 +10,10 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
  <link rel="stylesheet" href="styles/css/main.css">
 </head>
-<body class="main" ng-app="app" ng-controller="catalogCtrl">
+<body ng-app="app" ng-controller="catalogCtrl">
+<main class="main" >
+  
+
  <nav class="nav">
   <header class="nav__header">Movie Catalog</header>
   <ul class="nav__list">
@@ -21,7 +24,7 @@
  </nav>
  <section class="catalog" >
    <ul class="catalog__list">
-     <li ng-if="movie.images[0].url" ng-click="setCurrentMovie(movie)" ng-repeat ="movie in movieList">
+     <li class="catalog__list__item" ng-if="movie.images[0].url" ng-click="setCurrentMovie(movie,this)" ng-repeat ="movie in movieList">
       <img src="{{movie.images[0].url}}">
      </li>   
    </ul>
@@ -44,10 +47,10 @@
   </aside>
  
  </section>
- 
+ </main>
  <script src="scripts/app.js"></script>
  <script src="scripts/services/dataService.js"></script>
  <script src="scripts/controllers/catalogCtrl.js"></script>
- <script src="scripts/controllers/videoCtrl.js"></script>
+ <!-- <script src="scripts/controllers/videoCtrl.js"></script> -->
 </body>
 </html>
