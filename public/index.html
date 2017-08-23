@@ -24,14 +24,14 @@
  </nav>
  <section class="catalog" >
    <ul class="catalog__list">
-     <li class="catalog__list__item" ng-if="movie.images[0].url" ng-click="setCurrentMovie(movie,this)" ng-repeat ="movie in movieList">
-      <img src="{{movie.images[0].url}}">
+     <li class="catalog__list__item" ng-if="movie.images[0].url" ng-value="{{movie}}"  ng-repeat ="movie in movieList">
+     <img ng-src="{{ movie.images[0].url }}" onerror="this.src='http://via.placeholder.com/214x317'"/>
      </li>   
    </ul>
  </section>
- <section ng-if="currentMovie" class="video">
+ <section ng-if="currentMovie != undefined" class="video">
   <video class="video__player" controls>
-   <source src="{{currentMovie.contents[0].url}}" type="video/mp4">
+   <source ng-src="{{currentMovie.contents[0].url}}" type="video/mp4">
    <source src="" type="video/ogg">
    Your browser does not support HTML5 video.
   </video>
@@ -39,6 +39,7 @@
     <article>
       <header>
         <h3>{{currentMovie.title}}</h3>
+       
       </header>
       <p><strong>Description: </strong></p>
       <p>{{currentMovie.description}}</p>
