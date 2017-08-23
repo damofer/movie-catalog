@@ -108,7 +108,7 @@ $scope.init = function(){
 		   $scope.listElement = $(listElement)[0]; 
 
 		    if ( $scope.listElement.offsetLeft >    ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth )/2) { //case when the item offset + its width  exceeds the screen width 
-		         $( $scope.listElement.parentNode).animate( { scrollLeft: $scope.listElement.offsetLeft - ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth)/2},500);
+		         $( $scope.listElement.parentNode).animate( { scrollLeft: $scope.listElement.offsetLeft - ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth*1.1)/2},500);
 		       
 		         console.log("element offset = "+$scope.listElement.offsetLeft, "element width =" +$scope.listElement.clientWidth, "windows width ="+ $scope.listElement.parentNode.clientWidth)
 		        $scope.listElement.parentNode.scrollLeft =  $scope.listElement.offsetLeft - $scope.listElement.clientWidth ;
