@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,48 +11,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
  <link rel="stylesheet" href="styles/css/main.css">
 </head>
-<body ng-app="app" ng-controller="catalogCtrl">
-<main class="main" >
-  
-
- <nav class="nav">
-  <header class="nav__header">Movie Catalog</header>
-  <ul class="nav__list">
-    <li>Recent</li>
-    
-
-  </ul> 
- </nav>
- <section class="catalog" >
-   <ul class="catalog__list">
-     <li class="catalog__list__item" ng-if="movie.images[0].url" ng-value="{{movie}}"  ng-repeat ="movie in movieList">
-     <img ng-src="{{ movie.images[0].url }}" onerror="this.src='http://via.placeholder.com/214x317'"/>
-     </li>   
-   </ul>
- </section>
- <section ng-if="currentMovie != undefined" class="video">
-  <video class="video__player" controls>
-   <source ng-src="{{currentMovie.contents[0].url}}" type="video/mp4">
-   <source src="" type="video/ogg">
-   Your browser does not support HTML5 video.
-  </video>
-  <aside class="video__legend">
-    <article>
-      <header>
-        <h3>{{currentMovie.title}}</h3>
-       
-      </header>
-      <p><strong>Description: </strong></p>
-      <p>{{currentMovie.description}}</p>
-      <footer>footer</footer>
-    </article>
-  </aside>
- 
- </section>
- </main>
- <script src="scripts/app.js"></script>
- <script src="scripts/services/dataService.js"></script>
- <script src="scripts/controllers/catalogCtrl.js"></script>
- <!-- <script src="scripts/controllers/videoCtrl.js"></script> -->
+<body ng-app="app" ng-controller="mainCtrl">
+    <div ng-view class="module-container animated fadeIn"> </div>
 </body>
 </html>
