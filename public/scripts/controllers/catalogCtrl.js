@@ -43,7 +43,7 @@ $scope.init = function(){
 			        if(element.length>0 ){	
 		  	   	    var movie = JSON.parse($(element).attr('ng-value'));	
 
-		  	   		// console.log(element,movie)			      	
+		  	   		console.log(element,movie)			      	
 			       	$scope.setCurrentMovie(movie,element)
 			       }
 			    }
@@ -53,7 +53,7 @@ $scope.init = function(){
 			        if(element.length>0 ){	
 		  	   		var movie = JSON.parse($(element).attr('ng-value'));
 
-		  	   		// console.log(element,movie)			      	
+		  	   		console.log(element,movie)			      	
 			       	$scope.setCurrentMovie(movie,element)
 			        }
 			    }
@@ -108,10 +108,9 @@ $scope.init = function(){
 		   $scope.listElement = $(listElement)[0]; 
 
 		    if ( $scope.listElement.offsetLeft >    ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth )/2) { //case when the item offset + its width  exceeds the screen width 
-		         $( $scope.listElement.parentNode).animate( { scrollLeft: $scope.listElement.offsetLeft - ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth*1.1)/2},500);
+		         $( $scope.listElement.parentNode).animate( { scrollLeft: $scope.listElement.offsetLeft - ($scope.listElement.parentNode.clientWidth-$scope.listElement.clientWidth*1.1)/2},200);
 		       
-		         console.log("element offset = "+$scope.listElement.offsetLeft, "element width =" +$scope.listElement.clientWidth, "windows width ="+ $scope.listElement.parentNode.clientWidth)
-		        $scope.listElement.parentNode.scrollLeft =  $scope.listElement.offsetLeft - $scope.listElement.clientWidth ;
+		         
 		       } else {
 		         $scope.listElement.parentNode.scrollLeft = 0;
 		       }
@@ -142,10 +141,16 @@ $scope.init = function(){
 
 	
 	$scope.swap = function(newUrl) {
+		
 		var video = document.getElementsByTagName('video')[0];
 		video.src = newUrl;
+		try{
 		video.load();
-		video.play();
+		
+		}
+		catch (er){
+
+		}
 	}
 
 /*End of function definition section*/

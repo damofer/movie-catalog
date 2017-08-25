@@ -1,23 +1,34 @@
 <?php
+
 session_start();
 require 'databaseFiles/database.php';
+
 if( isset($_SESSION['user_id']) ){
-  header("Location: ../dashboard.php");
-}
-if(!empty($_POST['email']) && !empty($_POST['password'])):
+  echo true;
   
-  $records = $conn->prepare('SELECT id,email,password FROM users WHERE email = :email');
+
+}else{
+
+if(isset($_POST['email']) && isset($_POST['password'])):
+  
+ 
+  $records = $conn->prepare('SELECT ID,EMAIL,PASSWORD FROM users WHERE EMAIL = :email');
   $records->bindParam(':email', $_POST['email']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);
-  $message = '';
-  if(count($results) > 0 && password_verify($_POST['password'], $results['password']) ){
-    $_SESSION['user_id'] = $results['id'];
-    $_SESSION['user_email']=$results['type'];
+ 
+  // password_verify($_POST['password'], $results['PASSWORD'])
+ 
+ echo "success";
+  if(count($results) > 0 && ($_POST['password'] == $results['PASSWORD']) ){
+    $_SESSION['user_id'] = $results['ID'];
+    $_SESSION['user_email']=$results['EMAIL'];
    
-    header("Location: ../dashboard.php");
+    echo true;
+   
   } else {
-    $message = 'Disculpa, tu usuario y/o contraseña son incorrectos';
+    echo false;
   }
 endif;
+}
 ?>
