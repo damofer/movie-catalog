@@ -1,36 +1,41 @@
+<!doctype html>
+<html lang="en">
 
-<!DOCTYPE html>
-<html>
 <head>
- <title>Movie Catalog</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
-	 <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
- <link rel="stylesheet" href="styles/css/animate.css">
- <link rel="stylesheet" href="styles/css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ticket manager</title>
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.css">
+  <link rel="stylesheet" href="styles/css/animate.css">
+  <link rel="stylesheet" href="styles/css/main.css">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.js"></script>
+
+
 </head>
-<body ng-app="app" ng-controller="loginCtrl">
 
- <nav  class="nav">
-  <header class="nav__header">Movie Catalog</header>
-  <ul class="nav__list">
-    <li ng-if="loggedIn">Recent</li>
-    <li ng-if="loggedIn" ng-click="logout()">Logout</li>
-  </ul> 
- </nav>
-    <div ng-view class="module-container"> </div>
+
+<body ng-app ='app'>
+
+  <header ng-controller="mainCtrl" class="header" ng-include="'templates/snippets/_nav.html'"></header>
+        
+  <div class="main__container animated fadeInUp"  ng-view></div>  
+
+  <script src="vendor/angular.js"></script>
+  <script src="vendor/angular-route.js"></script>
+  
+  <!-- TODO Add script tags for your JavaScript files here -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/route-config.js"></script>
+  <script src="scripts/services/dataService.js"></script>   
+  <script src="scripts/controllers/dashboardCtrl.js"></script>
+  <script src="scripts/controllers/mainCtrl.js"></script>
+  
+  
 </body>
- <script src="scripts/app.js"></script>
- <script src="scripts/services/dataService.js"></script>
-
- <script src="scripts/controllers/loginCtrl.js"></script>
- <script src="scripts/controllers/catalogCtrl.js"></script>
 
 </html>

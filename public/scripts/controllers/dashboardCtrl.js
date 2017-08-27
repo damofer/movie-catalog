@@ -2,7 +2,7 @@
   'use strict';
   angular.module('app')
 
-.controller('catalogCtrl',function($scope,dataService,$window){
+.controller('dashboardCtrl',function($scope,dataService,$window){
 
 
 $scope.init = function(){
@@ -10,14 +10,14 @@ $scope.init = function(){
 	$scope.currentMovie ;
 	$scope.listElement; 
 	$scope.movieList = [];
-
+	$scope.user =undefined;
 	/*End of Variable declaration / initialization section*/
 
 
 	/*function initialization section*/
 
-
- $scope.getAllMovies();
+ $scope.isLoggedIn();
+ 
 
  // start when document is ready;
  angular.element(document).ready(function () {
@@ -76,7 +76,20 @@ $scope.init = function(){
 
 /*End of function initialization section*/
 }
-
+	$scope.isLoggedIn = function(){
+		dataService.isLoggedIn(function(response){	
+			
+		 	if(response.data.id){
+		 		
+		 		$scope.user=response.data;
+		 		console.log($scope.user);
+		 		$scope.getAllMovies();
+		 	}else{
+		 		 window.location = "/";
+		 	}
+		 });
+	}
+		
 	/*function definition section*/
 	$scope.getAllMovies = function(){
 
