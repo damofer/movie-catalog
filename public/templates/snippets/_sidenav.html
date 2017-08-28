@@ -1,0 +1,9 @@
+<div id="mySidenav" class="sidenav"  ng-if ="user">
+  <a href="javascript:void(0)" class="closebtn"  ng-click="closeNav()">&times;</a>
+  <h3>Recent</h3>
+  <ul class="log__list">
+  	<li class="log__list__item animated bounceInRight" ng-repeat="movie in logList" ng-click ="selectFromRecent(movie.MOVIE_ID)">
+  		{{movie.MOVIE_NAME}}
+  	</li>
+  </ul>
+</div>

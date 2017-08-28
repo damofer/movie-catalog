@@ -8,6 +8,7 @@ html,body{
 	height: 100%;
 	width:100%;
 	overflow: 	auto;
+	overflow-x: hidden;
 
 }
 html{
@@ -17,95 +18,7 @@ html{
 
 
 }
-.main{
-	
-	
-	// max-width: $break-large;
-	display: flex;
-	flex-direction: column;
-	overflow: auto;
 
-}
 
-.nav{
-	background: black;
-    color: white;
-	padding: 0 10px;
-	display:flex;
-	flex:1;
-	max-height: 80px;
-	justify-content: space-between;
-	align-items:center;
-	font-size: 2rem;
-	&__header{
-		padding: 10px;
-	}
-	&__list{
-		display: flex;
-		margin: 0;
-		
-		li{
 
-			padding: 15px;
-			list-style:none;
-			border: 1px solid rgba(black,0.3);
-		}
-	}
 
-}
-
-.catalog{
-	display:flex;
-	
-	
-
-	&__list{
-		
-		display: flex;
-		overflow: auto;	
-		overflow-y: hidden;
-		margin: 0;
-		padding: 30px 0;
-		li{
-			list-style: none;
-			margin: 0 ;
-			padding: 0 10px;
-			transition: 0.3s;
-			border: 3px solid transparent;
-			&:hover{
-				transform: 	scale(1.1);
-				
-			}
-		}
-
-	}
-}
-
-.video{
-	flex:1;
-	display: flex;
-	justify-content: space-evenly;
-	flex-direction: column;
-	background: rgba(black,0.3);
-	@media screen and (min-width: $break-medium) {
-	   flex-direction: row;
-	}
-	&__player{
-		flex: 1;
-		background:black;
-		
-		max-height: -webkit-fill-available;
-		
-	}
-	&__legend{
-		display: flex;
-		flex: 1;
-		padding: 10px;
-		article{
-			flex:1;
-			p{
-				padding: 5px;
-			}
-		}
-	}
-}

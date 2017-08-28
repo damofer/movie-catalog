@@ -1,11 +1,12 @@
-<main class="main" ng-controller="dashboardCtrl">
-  
+
+<main  class="main" ng-controller="dashboardCtrl">
+<div ng-include="'templates/snippets/_sidenav.html'"></div>  
 
 
  <section class="catalog" >
    <ul class="catalog__list">
-     <li class="catalog__list__item " ng-if="movie.images[0].url" ng-value="{{movie}}"  ng-repeat ="movie in movieList">
-     <img ng-src="{{ movie.images[0].url }}" onerror="this.src='http://via.placeholder.com/214x317'"/>
+     <li class="catalog__list__item " ng-if="movie.images[0].url" ng-value="{{movie}}" ng-repeat ="movie in movieList">
+     <img ng-src="{{ movie.images[0].url }}" name="{{movie.id}}" onerror="this.src='http://via.placeholder.com/214x317'"/>
      </li>   
    </ul>
  </section>
@@ -23,9 +24,13 @@
       </header>
       <p><strong>Description: </strong></p>
       <p>{{currentMovie.description}}</p>
-      <footer>footer</footer>
+      <footer ng-click="fullscreen()">fullscreen</footer>
     </article>
   </aside>
  
  </section>
  </main>
+
+ <script>
+
+</script>

@@ -16,10 +16,12 @@ module.exports = function(app,connection) {
 				var id =req.user.ID;
 				console.log('Connected!');
 				
-					var q ="SELECT l.ID, l.USER_ID, SUBSTR(l.TIMESTAMP,1,10) AS DATE, u.USERNAME, u.EMAIL \
+					var q ="SELECT l.ID AS ID, l.USER_ID AS USER_ID, l.MOVIE_ID AS MOVIE_ID, l.MOVIE_NAME AS MOVIE_NAME, l.TIMESTAMP AS DATE \
 					 FROM "+dbconfig.logs_table+" AS l \
 					 INNER JOIN "+dbconfig.users_table+" AS u ON l.USER_ID = u.ID\
-					 ";
+					 WHERE l.USER_ID = "+id+"\
+					 ORDER BY DATE DESC\
+					 LIMIT 30";
 					
 
 			}
@@ -38,6 +40,42 @@ module.exports = function(app,connection) {
 			});
 		});
 
+	app.post('/newLog',function(req,resp){
+	    var user_id = req.body.user_id,
+	    	movie_id = req.body.movie_id,
+	    	movie_name = req.body.movie_name;
+	      
+		connection.getConnection(function(error,tempCont){
+			if(!!error){
+				tempCont.release();
+				console.log('Error');
+
+			}else{
+			
+				console.log('Connected!');
+				
+					
+					var q = "INSERT INTO `"+dbconfig.logs_table+"`( USER_ID, MOVIE_ID, MOVIE_NAME) VALUES ("+user_id+",'"+movie_id+"','"+movie_name+"')";
+					
+
+			}
+				
+
+
+				tempCont.query(q,
+				function(error,rows,fields){
+					tempCont.release();
+					if(!!error){
+						console.log(error);
+						resp.end(resp.statusCode.toString());
+					}else{
+						
+						console.log("ticket submited");								
+						resp.end(resp.statusCode.toString());
+					}
+				})
+			});
+		});
 
 	app.get('/getAllMovies',function(req,resp){
 		// about mysql

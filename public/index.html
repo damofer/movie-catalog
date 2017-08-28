@@ -19,12 +19,13 @@
 </head>
 
 
-<body ng-app ='app'>
+<body ng-app ='app' ng-controller="mainCtrl">
 
-  <header ng-controller="mainCtrl" class="header" ng-include="'templates/snippets/_nav.html'"></header>
-        
+
+<main id="main">
+  <header  class="header" ng-include="'templates/snippets/_nav.html'"></header>        
   <div class="main__container animated fadeInUp"  ng-view></div>  
-
+</main>
   <script src="vendor/angular.js"></script>
   <script src="vendor/angular-route.js"></script>
   
@@ -33,6 +34,7 @@
   <script src="scripts/route-config.js"></script>
   <script src="scripts/services/dataService.js"></script>   
   <script src="scripts/controllers/dashboardCtrl.js"></script>
+
   <script src="scripts/controllers/mainCtrl.js"></script>
   
   

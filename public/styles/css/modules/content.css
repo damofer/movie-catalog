@@ -1,0 +1,40 @@
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: auto;
+}
+
+.catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.catalog__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: auto;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 30px 0;
+}
+
+.catalog__list li {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: 3px solid transparent;
+}
+
+.catalog__list li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
