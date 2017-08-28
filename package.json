@@ -4,8 +4,8 @@
   "description": "Front end development ",
   "main": "gulpfile.js",
   "scripts": {
-    "run": "node script.js",
-    "build": "node build_scripts/create_database.js"
+    "server": "node script.js",
+    "build_db": "node build_scripts/create_database.js"
   },
   "repository": {
     "type": "git",

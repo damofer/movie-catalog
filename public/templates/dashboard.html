@@ -20,11 +20,16 @@
     <article>
       <header>
         <h3>{{currentMovie.title}}</h3>
-
       </header>
       <p><strong>Description: </strong></p>
       <p>{{currentMovie.description}}</p>
-      <footer ng-click="fullscreen()">fullscreen</footer>
+      <div class="video__legend__details">
+      <p><b>Cast</b>: <span ng-repeat="person in currentMovie.credits"><br>
+        <strong>{{person.role}} </strong>: {{person.name}} 
+      </span></p>
+      <p><b>Genre</b>: <span ng-repeat="category in currentMovie.categories"><br>{{category.title}} </span></p>
+      </div>
+      <button class="fullscreen_btn" ng-click="fullscreen()">View in Fullscreen</button>
     </article>
   </aside>
  

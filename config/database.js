@@ -7,7 +7,7 @@ module.exports = {
         'password': ''
        
     },
-	'database': 'accedo',
+	'database': 'accedo_dmogollon',
     'users_table': 'users',
     'logs_table':'logs'
     

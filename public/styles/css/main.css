@@ -11,6 +11,13 @@ html, body {
   width: 100%;
   overflow: auto;
   overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 html {
@@ -20,6 +27,25 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  zoom: 0.7;
+}
+
+.main, #main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.header {
+  overflow: hidden;
 }
 
 .header__nav {
@@ -173,7 +199,7 @@ html {
   color: white;
 }
 
-.main {
+.main__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,7 +207,12 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .catalog {
@@ -266,4 +297,96 @@ html {
 
 .video__legend article p {
   padding: 5px;
+}
+
+.video__legend__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.video__legend__details p {
+  padding: 10px;
+}
+
+.fullscreen_btn {
+  padding: 10px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 2rem;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.fullscreen_btn:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.login,
+.signup {
+  padding: 30px;
+  max-resolution: auto;
+  width: 500px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background: #111;
+  border-radius: 10px;
+}
+
+.login form,
+.signup form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login form input, .login form select,
+.signup form input,
+.signup form select {
+  min-width: 250px;
+  outline: none;
+  padding: 10px;
+  margin: 2px;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  font-size: 1.5rem;
+}
+
+.login form input[type="submit"],
+.signup form input[type="submit"] {
+  border-radius: 5px;
+  border: none;
+  margin-top: 15px;
+}
+
+.login form .signup__form__footer,
+.signup form .signup__form__footer {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.login form .signup__form__footer a,
+.signup form .signup__form__footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.login h4,
+.signup h4 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 }
